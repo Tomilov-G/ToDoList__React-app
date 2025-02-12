@@ -7,9 +7,14 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sass-wstch": "sass --watch ."
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "material-icons": "^1.13.13",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
@@ -23,6 +28,8 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.18",
     "globals": "^15.14.0",
+    "sass": "^1.84.0",
+    "sass-embedded": "^1.83.4",
     "vite": "^6.1.0"
   }
 }

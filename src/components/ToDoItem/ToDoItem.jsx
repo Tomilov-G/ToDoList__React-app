@@ -1,3 +1,1 @@
-export default function ToDoItem() {
-
-}
+export default function ToDoItem() {}

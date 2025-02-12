@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import 'font-awesome/css/font-awesome.css';
 /**
   Нормализация блочной модели
  */
@@ -10,36 +9,32 @@
 }
 
 /**
-  Убираем внутренние отступы слева тегам списков,
-  у которых есть атрибут class
- */
+   Убираем внутренние отступы слева тегам списков,
+   у которых есть атрибут class
+  */
 :where(ul, ol):where([class]) {
   padding-left: 0;
 }
 
 /**
-  Убираем внешние отступы body и двум другим тегам,
-  у которых есть атрибут class
- */
+   Убираем внешние отступы body и двум другим тегам,
+   у которых есть атрибут class
+  */
 body,
 :where(blockquote, figure):where([class]) {
   margin: 0;
 }
 
+body {
+  background: #005aa7;
+  background: linear-gradient(to right, #005aa7, #fffde4);
+}
+
 /**
-  Убираем внешние отступы вертикали нужным тегам,
-  у которых есть атрибут class
- */
-:where(h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ul,
-ol,
-dl):where([class]) {
+   Убираем внешние отступы вертикали нужным тегам,
+   у которых есть атрибут class
+  */
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
   margin-block: 0;
 }
 
@@ -54,9 +49,9 @@ dl):where([class]) {
 }
 
 /**
-  Убираем стандартный маркер маркированному списку,
-  у которого есть атрибут class
- */
+   Убираем стандартный маркер маркированному списку,
+   у которого есть атрибут class
+  */
 :where(ul[class]) {
   list-style: none;
 }
@@ -66,26 +61,26 @@ dl):where([class]) {
 }
 
 /**
-  Обнуляем вертикальные внешние отступы параграфа,
-  объявляем локальную переменную для внешнего отступа вниз,
-  чтобы избежать взаимодействие с более сложным селектором
- */
+   Обнуляем вертикальные внешние отступы параграфа,
+   объявляем локальную переменную для внешнего отступа вниз,
+   чтобы избежать взаимодействие с более сложным селектором
+  */
 p {
   --paragraphMarginBottom: 24px;
   margin-block: 0;
 }
 
 /**
-  Внешний отступ вниз для параграфа без атрибута class,
-  который расположен не последним среди своих соседних элементов
- */
+   Внешний отступ вниз для параграфа без атрибута class,
+   который расположен не последним среди своих соседних элементов
+  */
 p:where(:not([class]):not(:last-child)) {
   margin-bottom: var(--paragraphMarginBottom);
 }
 
 /**
-  Упрощаем работу с изображениями и видео
- */
+   Упрощаем работу с изображениями и видео
+  */
 img,
 video {
   display: block;
@@ -94,8 +89,8 @@ video {
 }
 
 /**
-  Наследуем свойства шрифт для полей ввода
- */
+   Наследуем свойства шрифт для полей ввода
+  */
 input,
 textarea,
 select,
@@ -105,20 +100,20 @@ button {
 
 html {
   /**
-    Пригодится в большинстве ситуаций
-    (когда, например, нужно будет "прижать" футер к низу сайта)
-   */
+     Пригодится в большинстве ситуаций
+     (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
   height: 100%;
   /**
-    Убираем скачок интерфейса по горизонтали
-    при появлении / исчезновении скроллбара
-   */
+     Убираем скачок интерфейса по горизонтали
+     при появлении / исчезновении скроллбара
+    */
   scrollbar-gutter: stable;
 }
 
 /**
-  Плавный скролл
- */
+   Плавный скролл
+  */
 html,
 :has(:target) {
   scroll-behavior: smooth;
@@ -126,26 +121,26 @@ html,
 
 body {
   /**
-    Пригодится в большинстве ситуаций
-    (когда, например, нужно будет "прижать" футер к низу сайта)
-   */
+     Пригодится в большинстве ситуаций
+     (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
   min-height: 100%;
   /**
-    Унифицированный интерлиньяж
-   */
+     Унифицированный интерлиньяж
+    */
   line-height: 1.5;
 }
 
 /**
-  Нормализация высоты элемента ссылки при его инспектировании в DevTools
- */
+   Нормализация высоты элемента ссылки при его инспектировании в DevTools
+  */
 a:where([class]) {
   display: inline-flex;
 }
 
 /**
-  Курсор-рука при наведении на элемент
- */
+   Курсор-рука при наведении на элемент
+  */
 button,
 label {
   cursor: pointer;
@@ -153,14 +148,58 @@ label {
 
 @font-face {
   font-family: "LilitaOne";
-  src: url("./fonts/LilitaOne-Regular.ttf") format("truetype");
+  src: url("./fonts/LilitaOne_Regular.ttf") format("truetype");
   font-weight: 400;
 }
 @font-face {
   font-family: "DMSans";
-  src: url("./fonts/DMSans_24pt-Regular.ttf") format("truetype");
+  src: url("./fonts/DMSans_Regular.ttf") format("truetype");
   font-weight: 400;
 }
-header {
-  background-color: black;
+.todo__form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+  position: relative;
+  margin-bottom: 60px;
+}
+.todo__form__label {
+  font-family: "DMSans";
+  color: white;
+}
+.todo__form__input {
+  opacity: 0.5;
+  height: 40px;
+  width: 100%;
+  border-radius: 8px 30px 30px 8px;
+  border: none;
+}
+.todo__form__icon {
+  position: absolute;
+  right: 0px;
+  top: 37%;
+  font-size: 40px;
+  color: rgb(91, 186, 91);
+  cursor: pointer;
+}
+.todo__form__icon:hover {
+  color: #007bff;
+}
+
+.ToDo-App .container {
+  padding-block: 10px;
+  padding-inline: 10px;
+}
+.ToDo-App .container__inner {
+  text-align: center;
+}
+.ToDo-App .container__inner .title {
+  font-family: "LilitaOne";
+  color: white;
+  font-size: 28px;
+}
+.ToDo-App .container__inner .title__icon {
+  margin-left: 5px;
+  color: rgb(117, 241, 117);
 }/*# sourceMappingURL=main.css.map */

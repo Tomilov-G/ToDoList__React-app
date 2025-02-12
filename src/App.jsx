@@ -1,13 +1,9 @@
-import ToDoForm from './components/ToDoForm/TodoForm'
-import ToDoItem from './components/ToDoItem/ToDoItem'
-import ToDoList from './components/ToDoList/ToDoList'
-import './main.scss'
+import ToDoApp from "./components/ToDoApp/ToDoApp";
+import "./main.scss";
 
 function App() {
   return (
-    <>
-    </>
+  <ToDoApp />
   )
 }
-
-export default App
+export default App;

@@ -1,9 +1,6 @@
 @use "./styles/normalize";
 @use "./styles/fonts";
-@use "./styles/icons";
-
-@use "./components/ToDoForm/ToDoForm.module";
-@use "./components/ToDoItem/ToDoItem.module";
-@use "./components/ToDoList/ToDoList.module";
-
-
+@use "./components/ToDoForm/ToDoForm";
+@use "./components/ToDoItem/ToDoItem";
+@use "./components/ToDoList/ToDoList";
+@use "./components/ToDoApp/ToDoApp";
