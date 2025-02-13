@@ -1,9 +1,8 @@
-import classes from "./ToDoApp.module.scss";
-import ToDoForm from "../ToDoForm/TodoForm";
-import ToDoList from "../ToDoList/ToDoList";
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckSquare } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import classes from "./ToDoApp.module.scss";
+import ToDoForm from "../ToDoForm/TodoForm";
 
 export default function ToDoApp() {
   const [tasks, setTasks] = useState([]);

@@ -1,7 +1,7 @@
-import classes from "./ToDoForm.module.scss"
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import classes from "./ToDoForm.module.scss"
 
 export default function ToDoForm({ tasks, setTasks }) {
   const [textOfTask, setTextOfTask] = useState("");
