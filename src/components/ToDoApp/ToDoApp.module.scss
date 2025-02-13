@@ -1,0 +1,18 @@
+.toDoApp {
+  .container {
+    padding-block: 10px;
+    padding-inline: 10px;
+    .containerInner {
+      text-align: center;
+      .title {
+        font-family: "LilitaOne";
+        color: white;
+        font-size: 28px;
+        .icon {
+          margin-left: 5px;
+          color: rgb(117, 241, 117);
+        }
+      }
+    }
+  }
+}

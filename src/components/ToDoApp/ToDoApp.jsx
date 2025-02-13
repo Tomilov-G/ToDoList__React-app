@@ -1,3 +1,4 @@
+import classes from './ToDoApp.module.scss';
 import ToDoForm from "../ToDoForm/TodoForm";
 import ToDoList from "../ToDoList/ToDoList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,12 +12,12 @@ export default function ToDoApp() {
 
   return (
     <>
-      <div className="ToDo-App">
-        <div className="container">
-          <div className="container__inner">
-            <h4 className="title">
+      <div className={classes.toDoApp}>
+        <div className={classes.container}>
+          <div className={classes.containerInner}>
+            <h4 className={classes.title}>
               ToDo List
-              <FontAwesomeIcon icon={faCheckSquare} className="title__icon" />
+              <FontAwesomeIcon icon={faCheckSquare} className={classes.icon} />
             </h4>
             <ToDoForm tasks={tasks} setTasks={setTasks}/>
           </div>

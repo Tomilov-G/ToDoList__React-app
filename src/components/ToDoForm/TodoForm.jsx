@@ -1,3 +1,4 @@
+import classes from "./ToDoForm.module.scss"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
@@ -10,7 +11,7 @@ export default function ToDoForm({ tasks, setTasks }) {
   }
 
   function taskAddInList() {
-    
+
     if (textOfTask.trim()) {
 
         const newTask = {
@@ -28,13 +29,13 @@ export default function ToDoForm({ tasks, setTasks }) {
   }
 
   return (
-    <form className="todo__form">
-      <label htmlFor="taskInput" className="todo__form__label">
+    <form className={classes.todoForm}>
+      <label htmlFor="taskInput" className={classes.label}>
         Впишите свою задачу:
       </label>
       <input
         type="text"
-        className="todo__form__input"
+        className={classes.input}
         id="taskInput"
         placeholder="Например: приготовить ужин"
         maxLength={100}
@@ -43,7 +44,7 @@ export default function ToDoForm({ tasks, setTasks }) {
       />
       <FontAwesomeIcon
         icon={faPlusCircle}
-        className="todo__form__icon"
+        className={classes.icon}
         onClick={taskAddInList}
       />
     </form>
