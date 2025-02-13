@@ -5,8 +5,8 @@ import classes from "./ToDoItem.module.scss";
 export default function ToDoItem({ task, onComplete, onDelete }) {
 
   const taskStyle = {
-    borderColor: task.complete ? "green" : "grey",
-    textDecoration: task.complete ? "line-through" : "none",
+    borderColor: task.completed ? "green" : "grey",
+    textDecoration: task.completed ? "line-through" : "none",
   }
 
   return (

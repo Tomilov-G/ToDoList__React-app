@@ -5,7 +5,7 @@ export default function ToDoList({ tasks, setTasks }) {
   function handleComplete (id) {
     const updatedTasks = tasks.map((task) => {
       if (task.id === id) {
-        return {...task, complete: !task.complete}
+        return {...task, completed: !task.completed}
       }
       return task;
     })

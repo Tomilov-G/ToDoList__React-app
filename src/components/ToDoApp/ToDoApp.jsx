@@ -10,7 +10,7 @@ export default function ToDoApp() {
 
   useEffect(() => {
     const savedTasks = JSON.parse(localStorage.getItem("tasks"));
-    if (savedTasks) {
+    if (savedTasks && Array.isArray(savedTasks)) {
       setTasks(savedTasks);
     }
   }, []);
