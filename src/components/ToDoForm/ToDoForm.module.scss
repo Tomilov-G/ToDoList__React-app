@@ -1,0 +1,30 @@
+.todoForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+  position: relative;
+  margin-bottom: 60px;
+  .label {
+    font-family: "DMSans";
+    color: white;
+  }
+  .input {
+    opacity: 0.5;
+    height: 40px;
+    width: 100%;
+    border-radius: 8px 30px 30px 8px;
+    border: none;
+  }
+  .icon {
+    position: absolute;
+    right: 0px;
+    top: 37%;
+    font-size: 40px;
+    color: rgb(91, 186, 91);
+    cursor: pointer;
+    &:hover {
+      color: #007bff;
+    }
+  }
+}

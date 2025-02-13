@@ -1,3 +1,2 @@
-export default function ToDoItem() {
-
-}
+import classes from "./ToDoItem.module.scss";
+export default function ToDoItem() {}
