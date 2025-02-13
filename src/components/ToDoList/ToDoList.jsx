@@ -1,2 +1,2 @@
-import classes from './ToDoList.module.scss'
+import classes from "./ToDoList.module.scss";
 export default function ToDoList() {}

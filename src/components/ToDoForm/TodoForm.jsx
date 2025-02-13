@@ -1,7 +1,7 @@
 import classes from "./ToDoForm.module.scss"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function ToDoForm({ tasks, setTasks }) {
   const [textOfTask, setTextOfTask] = useState("");
@@ -21,7 +21,6 @@ export default function ToDoForm({ tasks, setTasks }) {
       };
 
       setTasks(tasks.concat(newTask));
-      console.log(tasks)
       setTextOfTask("");
     } else {
       console.log("Задача некорректна, поробуйте ввести ее еще раз");
