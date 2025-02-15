@@ -13,9 +13,9 @@ export default function ToDoForm({ tasks, setTasks }) {
   function taskAddInList(event) {
     event.preventDefault()
     if (textOfTask.trim()) {
-
+      
         const newTask = {
-        id: tasks.length + 1, 
+        id: new Date, 
         text: textOfTask,
         completed: false, 
       };
