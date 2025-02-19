@@ -1,13 +1,16 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faCheckSquare } from "@fortawesome/free-solid-svg-icons";
 import classes from "./ToDoItem.module.scss";
+import { useMemo } from "react";
 
 export default function ToDoItem({ task, onComplete, onDelete }) {
 
-  const taskStyle = {
-    borderColor: task.completed ? "green" : "grey",
-    textDecoration: task.completed ? "line-through" : "none",
-  }
+  const taskStyle = useMemo(() => {
+    return {
+      borderColor: task.completed ? "green" : "grey",
+      textDecoration: task.completed ? "line-through" : "none",
+    };
+  },[task.completed])
 
   return (
     <li className={classes.toDoItem}>
