@@ -1,12 +1,12 @@
 import ToDoItem from "../ToDoItem/ToDoItem";
 import { FC } from "react";
-import { ToDoListProps } from "../types/ToDoListProps";
+import { ToDoListProps } from "../../types/ToDoListProps";
 
-  const ToDoList:FC<ToDoListProps> = ({ tasks, setTasks }) => {
-  function handleComplete(id: Date) {
+const ToDoList: FC<ToDoListProps> = ({ tasks, setTasks }) => {
+  function handleComplete(id: string) {
     setTasks((prevState) =>
       prevState.map((task) => {
-        if (task.id.getTime() === id.getTime()) {
+        if (task.id === id) {
           return { ...task, completed: !task.completed };
         }
         return task;
@@ -14,15 +14,17 @@ import { ToDoListProps } from "../types/ToDoListProps";
     );
   }
 
-  function handleDelete(id: Date) {
-    setTasks((prevState) => prevState.filter((task) => task.id.getTime() !== id.getTime()))
+  function handleDelete(id: string) {
+    setTasks((prevState) =>
+      prevState.filter((task) => task.id !== id)
+    );
   }
   return (
     <>
       <ol>
         {tasks.map((task) => (
           <ToDoItem
-            key={task.id.getTime()}
+            key={task.id}
             task={task}
             onComplete={handleComplete}
             onDelete={handleDelete}
@@ -31,5 +33,5 @@ import { ToDoListProps } from "../types/ToDoListProps";
       </ol>
     </>
   );
-}
-export default ToDoList
+};
+export default ToDoList;

@@ -4,18 +4,19 @@ import { faCheckSquare } from "@fortawesome/free-solid-svg-icons";
 import classes from "./ToDoApp.module.scss";
 import ToDoForm from "../ToDoForm/TodoForm";
 import ToDoList from "../ToDoList/ToDoList";
-import { Task } from "../types/Task";
+import { Task } from "../../types/Task";
 
 const ToDoApp: FC = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
   useEffect(() => {
     const savedTasks: Task[] = JSON.parse(
-      localStorage.getItem("tasks") || "[]");
+      localStorage.getItem("tasks") || "[]"
+    );
     setTasks(savedTasks);
   }, []);
 
   useEffect(() => {
-    if (tasks.length >= 0) {
+    if (tasks.length > 0) {
       localStorage.setItem("tasks", JSON.stringify(tasks));
     }
   }, [tasks]);

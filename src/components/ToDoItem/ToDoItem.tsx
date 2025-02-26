@@ -2,16 +2,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faCheckSquare } from "@fortawesome/free-solid-svg-icons";
 import classes from "./ToDoItem.module.scss";
 import { useMemo, FC } from "react";
-import { ToDoItemProps } from "../types/ToDoItemProps";
+import { ToDoItemProps } from "../../types/ToDoItemProps";
 
-  const ToDoItem: FC<ToDoItemProps> = ({ task, onComplete, onDelete }) => {
-
+const ToDoItem: FC<ToDoItemProps> = ({ task, onComplete, onDelete }) => {
   const taskStyle = useMemo(() => {
     return {
       borderColor: task.completed ? "green" : "grey",
       textDecoration: task.completed ? "line-through" : "none",
     };
-  },[task.completed])
+  }, [task.completed]);
 
   return (
     <li className={classes.toDoItem}>
@@ -34,5 +33,5 @@ import { ToDoItemProps } from "../types/ToDoItemProps";
       />
     </li>
   );
-}
-export default ToDoItem
+};
+export default ToDoItem;

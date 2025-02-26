@@ -2,6 +2,6 @@ import { Task } from "./Task";
 
 export type ToDoItemProps = {
     task: Task,
-    onComplete: (id: Date) => void,
-    onDelete: (id: Date) => void,
+    onComplete: (id: string) => void,
+    onDelete: (id: string) => void,
 };

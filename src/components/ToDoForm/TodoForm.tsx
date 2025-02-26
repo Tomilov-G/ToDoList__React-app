@@ -1,11 +1,12 @@
 import { useState, ChangeEvent, MouseEvent, FC } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
+import { v4 as uuidv4 } from "uuid";
 import classes from "./ToDoForm.module.scss";
-import { Task } from "../types/Task";
-import { ToDoFormProps } from "../types/ToDoFormProps";
+import { Task } from "../../types/Task";
+import { ToDoFormProps } from "../../types/ToDoFormProps";
 
-  const ToDoForm: FC<ToDoFormProps> = ({ tasks, setTasks }) => {
+const ToDoForm: FC<ToDoFormProps> = ({ tasks, setTasks }) => {
   const [textOfTask, setTextOfTask] = useState<string>("");
 
   function handleChangeText(event: ChangeEvent<HTMLInputElement>) {
@@ -16,7 +17,7 @@ import { ToDoFormProps } from "../types/ToDoFormProps";
     event.preventDefault();
     if (textOfTask.trim()) {
       const newTask: Task = {
-        id: new Date(),
+        id: uuidv4(),
         text: textOfTask,
         completed: false,
       };
@@ -50,4 +51,4 @@ import { ToDoFormProps } from "../types/ToDoFormProps";
     </form>
   );
 };
-export default ToDoForm
+export default ToDoForm;
