@@ -28,3 +28,6 @@ package-lock.json
 
 # Css
 *.map
+
+# TS
+global.d.ts

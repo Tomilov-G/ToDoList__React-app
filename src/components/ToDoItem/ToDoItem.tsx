@@ -1,9 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faCheckSquare } from "@fortawesome/free-solid-svg-icons";
 import classes from "./ToDoItem.module.scss";
-import { useMemo } from "react";
+import { useMemo, FC } from "react";
+import { ToDoItemProps } from "../types/ToDoItemProps";
 
-export default function ToDoItem({ task, onComplete, onDelete }) {
+  const ToDoItem: FC<ToDoItemProps> = ({ task, onComplete, onDelete }) => {
 
   const taskStyle = useMemo(() => {
     return {
@@ -34,3 +35,4 @@ export default function ToDoItem({ task, onComplete, onDelete }) {
     </li>
   );
 }
+export default ToDoItem

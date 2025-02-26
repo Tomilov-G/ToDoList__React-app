@@ -1,23 +1,24 @@
-import { useState } from "react";
+import { useState, ChangeEvent, MouseEvent, FC } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
-import classes from "./ToDoForm.module.scss"
+import classes from "./ToDoForm.module.scss";
+import { Task } from "../types/Task";
+import { ToDoFormProps } from "../types/ToDoFormProps";
 
-export default function ToDoForm({ tasks, setTasks }) {
-  const [textOfTask, setTextOfTask] = useState("");
+  const ToDoForm: FC<ToDoFormProps> = ({ tasks, setTasks }) => {
+  const [textOfTask, setTextOfTask] = useState<string>("");
 
-  function handleChangeText(event) {
+  function handleChangeText(event: ChangeEvent<HTMLInputElement>) {
     setTextOfTask(event.target.value);
   }
 
-  function taskAddInList(event) {
-    event.preventDefault()
+  function taskAddInList(event: MouseEvent<SVGSVGElement>) {
+    event.preventDefault();
     if (textOfTask.trim()) {
-      
-        const newTask = {
-        id: new Date, 
+      const newTask: Task = {
+        id: new Date(),
         text: textOfTask,
-        completed: false, 
+        completed: false,
       };
 
       setTasks(tasks.concat(newTask));
@@ -48,4 +49,5 @@ export default function ToDoForm({ tasks, setTasks }) {
       />
     </form>
   );
-}
+};
+export default ToDoForm
