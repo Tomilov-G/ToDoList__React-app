@@ -4,7 +4,11 @@ import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import { v4 as uuidv4 } from "uuid";
 import classes from "./ToDoForm.module.scss";
 import { Task } from "../../types/Task";
-import { ToDoFormProps } from "../../types/ToDoFormProps";
+
+interface ToDoFormProps {
+  tasks: Task[];
+  setTasks: (tasks: Task[]) => void;
+};
 
 const ToDoForm: FC<ToDoFormProps> = ({ tasks, setTasks }) => {
   const [textOfTask, setTextOfTask] = useState<string>("");
