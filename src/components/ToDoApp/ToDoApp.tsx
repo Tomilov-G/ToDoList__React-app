@@ -1,18 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, FC } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckSquare } from "@fortawesome/free-solid-svg-icons";
 import classes from "./ToDoApp.module.scss";
 import ToDoForm from "../ToDoForm/TodoForm";
 import ToDoList from "../ToDoList/ToDoList";
+import { Task } from "../../types/Task";
 
-export default function ToDoApp() {
-  const [tasks, setTasks] = useState([]);
-
+const ToDoApp: FC = () => {
+  const [tasks, setTasks] = useState<Task[]>([]);
   useEffect(() => {
-    const savedTasks = JSON.parse(localStorage.getItem("tasks"));
-    if (savedTasks && Array.isArray(savedTasks)) {
-      setTasks(savedTasks);
-    }
+    const savedTasks: Task[] = JSON.parse(
+      localStorage.getItem("tasks") || "[]"
+    );
+    setTasks(savedTasks);
   }, []);
 
   useEffect(() => {
@@ -33,4 +33,5 @@ export default function ToDoApp() {
       </div>
     </>
   );
-}
+};
+export default ToDoApp;

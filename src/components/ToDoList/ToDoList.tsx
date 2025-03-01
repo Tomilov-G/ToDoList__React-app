@@ -1,7 +1,14 @@
+import { FC, Dispatch, SetStateAction } from "react";
 import ToDoItem from "../ToDoItem/ToDoItem";
+import { Task } from "../../types/Task";
 
-export default function ToDoList({ tasks, setTasks }) {
-  function handleComplete(id) {
+interface ToDoListProps {
+  tasks: Task[];
+  setTasks: Dispatch<SetStateAction<Task[]>>;
+}
+
+const ToDoList: FC<ToDoListProps> = ({ tasks, setTasks }) => {
+  function handleComplete(id: string) {
     setTasks((prevState) =>
       prevState.map((task) => {
         if (task.id === id) {
@@ -12,8 +19,8 @@ export default function ToDoList({ tasks, setTasks }) {
     );
   }
 
-  function handleDelete(id) {
-    setTasks((prevState) => prevState.filter((task) => task.id !== id))
+  function handleDelete(id: string) {
+    setTasks((prevState) => prevState.filter((task) => task.id !== id));
   }
   return (
     <>
@@ -29,4 +36,5 @@ export default function ToDoList({ tasks, setTasks }) {
       </ol>
     </>
   );
-}
+};
+export default ToDoList;
