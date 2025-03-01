@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /**
   Нормализация блочной модели
  */
@@ -26,7 +25,8 @@ body,
 }
 
 body {
-  background: #005aa7;
+  background: #005aa7; 
+  background: -webkit-linear-gradient(to right, #005aa7, #fffde4); 
   background: linear-gradient(to right, #005aa7, #fffde4);
 }
 
@@ -67,6 +67,7 @@ body {
   */
 p {
   --paragraphMarginBottom: 24px;
+
   margin-block: 0;
 }
 
@@ -145,61 +146,3 @@ button,
 label {
   cursor: pointer;
 }
-
-@font-face {
-  font-family: "LilitaOne";
-  src: url("./fonts/LilitaOne_Regular.ttf") format("truetype");
-  font-weight: 400;
-}
-@font-face {
-  font-family: "DMSans";
-  src: url("./fonts/DMSans_Regular.ttf") format("truetype");
-  font-weight: 400;
-}
-.todo__form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  height: 100%;
-  position: relative;
-  margin-bottom: 60px;
-}
-.todo__form__label {
-  font-family: "DMSans";
-  color: white;
-}
-.todo__form__input {
-  opacity: 0.5;
-  height: 40px;
-  width: 100%;
-  border-radius: 8px 30px 30px 8px;
-  border: none;
-}
-.todo__form__icon {
-  position: absolute;
-  right: 0px;
-  top: 37%;
-  font-size: 40px;
-  color: rgb(91, 186, 91);
-  cursor: pointer;
-}
-.todo__form__icon:hover {
-  color: #007bff;
-}
-
-.ToDo-App .container {
-  padding-block: 10px;
-  padding-inline: 10px;
-}
-.ToDo-App .container__inner {
-  text-align: center;
-}
-.ToDo-App .container__inner .title {
-  font-family: "LilitaOne";
-  color: white;
-  font-size: 28px;
-}
-.ToDo-App .container__inner .title__icon {
-  margin-left: 5px;
-  color: rgb(117, 241, 117);
-}/*# sourceMappingURL=main.css.map */
