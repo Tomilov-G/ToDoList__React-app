@@ -3,11 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage":"https://tomilov-g.github.io/ToDoList__React-app/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "sass-wstch": "sass --watch ."
+    "sass-wstch": "sass --watch .",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
