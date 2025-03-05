@@ -1,31 +1,25 @@
-import { FC, Dispatch, SetStateAction } from "react";
+import { FC } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { completeTask, deleteTask } from "../../features/ToDoSlice";
+import { RootState } from "../../store/store";
 import ToDoItem from "../ToDoItem/ToDoItem";
-import { Task } from "../../types/Task";
 
-interface ToDoListProps {
-  tasks: Task[];
-  setTasks: Dispatch<SetStateAction<Task[]>>;
-}
 
-const ToDoList: FC<ToDoListProps> = ({ tasks, setTasks }) => {
+const ToDoList: FC = () => {
+  const toDoList = useSelector((state: RootState) => state.toDoList.tasks)
+  
+  const dispatch = useDispatch()
   function handleComplete(id: string) {
-    setTasks((prevState) =>
-      prevState.map((task) => {
-        if (task.id === id) {
-          return { ...task, completed: !task.completed };
-        }
-        return task;
-      })
-    );
+    dispatch(completeTask(id))
   }
 
   function handleDelete(id: string) {
-    setTasks((prevState) => prevState.filter((task) => task.id !== id));
+    dispatch(deleteTask(id))
   }
   return (
     <>
       <ol>
-        {tasks.map((task) => (
+        {toDoList.map((task) => (
           <ToDoItem
             key={task.id}
             task={task}
