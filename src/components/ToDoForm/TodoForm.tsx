@@ -1,17 +1,14 @@
 import { useState, ChangeEvent, MouseEvent, FC } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
-import { v4 as uuidv4 } from "uuid";
 import classes from "./ToDoForm.module.scss";
-import { Task } from "../../types/Task";
+import { useDispatch } from "react-redux";
+import { addTask } from "../../features/ToDoSlice";
 
-interface ToDoFormProps {
-  tasks: Task[];
-  setTasks: (tasks: Task[]) => void;
-};
 
-const ToDoForm: FC<ToDoFormProps> = ({ tasks, setTasks }) => {
+const ToDoForm: FC = () => {
   const [textOfTask, setTextOfTask] = useState<string>("");
+  const dispatch = useDispatch()
 
   function handleChangeText(event: ChangeEvent<HTMLInputElement>) {
     setTextOfTask(event.target.value);
@@ -19,14 +16,9 @@ const ToDoForm: FC<ToDoFormProps> = ({ tasks, setTasks }) => {
 
   function taskAddInList(event: MouseEvent<SVGSVGElement>) {
     event.preventDefault();
-    if (textOfTask.trim()) {
-      const newTask: Task = {
-        id: uuidv4(),
-        text: textOfTask,
-        completed: false,
-      };
 
-      setTasks(tasks.concat(newTask));
+    if (textOfTask.trim()) {
+      dispatch(addTask(textOfTask))
       setTextOfTask("");
     } else {
       console.log("Задача некорректна, поробуйте ввести ее еще раз");
